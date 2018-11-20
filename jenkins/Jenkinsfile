@@ -65,19 +65,19 @@ podTemplate(label: label, cloud: 'kubernetes', containers: [
             }
 
             stage('docker-build') {
-                sh "docker build . -t ${params.REGISTRY_URL}/lusyoe/k8s-example:${shortGitCommit}"
+                sh "docker build . -t ${params.REGISTRY_URL}/app/jeensns:${shortGitCommit}"
             }
 
             stage('docker-push') {
-                sh "docker push ${params.REGISTRY_URL}/lusyoe/k8s-example:${shortGitCommit}"
+                sh "docker push ${params.REGISTRY_URL}/app/jeensns:${shortGitCommit}"
             }
         }
 
 
         container('kubectl') {
             stage('k8s deploy') {
-                sh "sed -i \"s/lusyoe\\/k8s-example/${params.REGISTRY_URL}\\/lusyoe\\/k8s-example:${shortGitCommit}/g\" k8s-example.yaml"
-                sh "kubectl --kubeconfig=/root/.kube/config apply -f k8s-example.yaml"
+                sh "sed -i \"s/app\\/jeensns/${params.REGISTRY_URL}\\/app\\/jeensns:${shortGitCommit}/g\" k8s-jeensns.yaml"
+                sh "kubectl --kubeconfig=/root/.kube/config apply -f k8s-jeensns.yaml"
             }
         }
 
