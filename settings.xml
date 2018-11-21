@@ -11,8 +11,8 @@
     <mirrors>
          <mirror>
             <id>nexus</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <name>maven</name>
+            <url>http://10.83.35.24:8081/repository/maven-public//</url>
             <mirrorOf>*</mirrorOf>
         </mirror>
     </mirrors>
