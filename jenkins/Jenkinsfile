@@ -76,8 +76,8 @@ podTemplate(label: label, cloud: 'kubernetes', containers: [
 
         container('kubectl') {
             stage('k8s deploy') {
-                sh "sed -i \"s/app\\/jeensns/${params.REGISTRY_URL}\\/app\\/jeensns:${shortGitCommit}/g\" k8s-jeensns.yaml"
-                sh "kubectl --kubeconfig=/root/.kube/config apply -f k8s-jeensns.yaml"
+                sh "sed -i \"s/app\\/jeensns/${params.REGISTRY_URL}\\/app\\/jeensns:${shortGitCommit}/g\" jeensns.yaml"
+                sh "kubectl --kubeconfig=/root/.kube/config apply -f jeensns.yaml"
             }
         }
 
