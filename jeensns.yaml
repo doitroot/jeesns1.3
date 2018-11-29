@@ -60,7 +60,7 @@ metadata:
   name: jeensns
 spec:
   rules:
-  - host: jeensns.bff.cn
+  - host: jeensnsk8s.bff.cn
     http:
       paths:
       - backend:
