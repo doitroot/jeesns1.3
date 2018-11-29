@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jeensns
+  name: jeesns
   labels:
-    app: jeensns
+    app: jeesns
     tier: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: jeensns
+      app: jeesns
       tier: backend
   template:
     metadata:
       labels:
-        app: jeensns
+        app: jeesns
         tier: backend
     spec:
       containers:
-      - name: jeensns
-        image: app/jeensns
+      - name: jeesns
+        image: app/jeesns
         resources:
           requests:
             cpu: 100m
@@ -41,13 +41,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jeensns
+  name: jeesns
   labels:
-    app: jeensns
+    app: jeesns
     tier: backend
 spec:
   selector:
-    app: jeensns
+    app: jeesns
     tier: backend
   ports:
   - port: 8080
@@ -57,14 +57,14 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jeensns
+  name: jeesns
 spec:
   rules:
-  - host: jeensnsk8s.bff.cn
+  - host: jeesnsk8s.bff.cn
     http:
       paths:
       - backend:
-          serviceName: jeensns
+          serviceName: jeesns
           servicePort: k8s-backend
 
 
